@@ -1,0 +1,79 @@
+<!doctype html>
+
+<!-- If multi-language site, reconsider usage of html lang declaration here. -->
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Quiz</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Place favicon.ico in the root directory: mathiasbynens.be/notes/touch-icons -->
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <!--font-awesome link for icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Default style-sheet is for 'media' type screen (color computer display).  -->
+  <link rel="stylesheet" media="screen" href="assets/css/style.css">
+
+</head>
+
+<body>
+  <!--container start-->
+  <div class="container">
+    <!--header section start-->
+    <header>
+      <div class="wrapper">
+        <h1>Quiz App</h1>
+      </div>
+    </header>
+    <!--header section start-->
+    <!--main section start-->
+    <main>
+      <div class="wrapper">
+        <div class="welcome">
+          <h2>Welcome to Quiz</h2>
+          <button class="start">Start Quiz</button>
+        </div>
+        <div class="quiz-container">
+          <div class="timer">
+            <div class="question-count">
+              <p>Out of: <span class="count">1</span>/<span>4</span></p>
+            </div>
+            <div class="countdown">
+              <p>Time Left: <span class="quizCounter">00:00</span></p>
+            </div>
+          </div>
+          <div class="q-ans">
+            <p class="Quizquestion"></p>
+            <div class="ans-options">
+              <a href="#FIXME" title="Delhi" class="options" data-opt="1"></a>
+              <a href="#FIXME" title="Delhi" class="options" data-opt="2"></a>
+              <a href="#FIXME" title="Delhi" class="options" data-opt="3"></a>
+              <a href="#FIXME" title="Delhi" class="options" data-opt="4"></a>
+            </div>
+          </div>
+          <div class="btn-group">
+            <button class="next">Next</button>
+            <button class="result">Show Result</button>
+          </div>
+        </div>
+        <div class="resultShow">
+          <h3 class="result-score">Score</h3>
+          <p>Correct Answer: <span class="rightcount"></span></p>
+          <p>Wrong Answer: <span class="wrongcount"></span></p>
+          <p>Attempt Question: <span class="attemptCount"></span></p>
+          <button class="restart">Restart</button>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!--container end-->
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
