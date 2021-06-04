@@ -158,7 +158,7 @@ restart.addEventListener('click', () => {
 	wrongcount.textContent = "";
 	attemptCount.textContent = "";
 	resultScore.textContent = "";
-	welcome.style.display = "block";
+	welcome.classList.remove("active");
 	resultShow.classList.remove("active");
 	quizContainer.classList.remove("active");
 })
