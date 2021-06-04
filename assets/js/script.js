@@ -38,6 +38,16 @@ let qData = [
 		],
 		answer: 3,
 	},
+	{
+		question: "Inside which HTML element do we put the JavaScript?",
+		options: [
+			"<js>",
+			"<scripting>",
+			"<javascript>",
+			"<script>"
+		],
+		answer: 4,
+	},
 ];
 
 let quizContainer = document.querySelector('.quiz-container');
@@ -90,7 +100,7 @@ next.addEventListener('click', (e) => {
 	e.preventDefault();
 	qno++;
 	if (qno === qData.length - 1) {
-		next.style.display = "none";
+		next.classList.add('active');
 	}
 	showQuiz(qData);
 	option.forEach(rem => {
@@ -112,11 +122,12 @@ const showResult = () => {
 	resultScore.textContent = `Your Score is: ${correctAns}`;
 }
 
-result.addEventListener('click', () => {
+result.addEventListener('click', (e) => {
+	e.preventDefault();
 	showResult();
 	clearInterval(countDown);
-	quizContainer.style.display = "none";
-	resultShow.style.display = "block";
+	quizContainer.classList.remove("active");
+	resultShow.classList.add('active');
 });
 
 const stoptWatch = () => {
@@ -126,12 +137,12 @@ const stoptWatch = () => {
 		min--;
 		sec = 60;
 	}
-	if (min === 0) {
+	if (min === 0 && sec === 0) {
+		min = 0;
+		sec = 0;
 		clearInterval(countDown);
-		min = 2;
-		sec = 60;
-		quizContainer.style.display = "none";
-		resultShow.style.display = "block";
+		quizContainer.classList.remove('active');
+		resultShow.classList.add("active");
 		showResult();
 	}
 	quizCounter.textContent = `0${min}:${sec}`;
@@ -148,13 +159,15 @@ restart.addEventListener('click', () => {
 	attemptCount.textContent = "";
 	resultScore.textContent = "";
 	welcome.style.display = "block";
-	resultShow.style.display = "none";
+	resultShow.classList.remove("active");
+	quizContainer.classList.remove("active");
 })
 
 // Start Quiz
-startQuiz.addEventListener('click', () => {
-	welcome.style.display = "none";
-	quizContainer.style.display = "block";
+startQuiz.addEventListener('click', (e) => {
+	e.preventDefault();
+	welcome.classList.add("active");
+	quizContainer.classList.add("active");
 	min = 2;
 	sec = 60;
 	qno = 0;
@@ -165,7 +178,7 @@ startQuiz.addEventListener('click', () => {
 		rem.classList.remove('correct');
 		rem.classList.remove('freez');
 	})
-	next.style.display = "block";
+	next.classList.remove("active");
 	showQuiz(qData);
 	setInterval(stoptWatch, 1000);
 })

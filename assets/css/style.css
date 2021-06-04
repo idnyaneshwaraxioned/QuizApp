@@ -117,9 +117,10 @@ li {
 =================================*/
 header h1 {
   padding: 20px;
+  border-bottom: 1px solid;
+  margin: 20px 0;
   font-size: 35px;
   font-weight: bold;
-  border-bottom: 1px solid;
 }
 
 /*=================================
@@ -135,10 +136,12 @@ header h1 {
   font-size: 45px;
 }
 
+.welcome.active {display: none;}
+
 .welcome button { margin: 20px 0; }
 
 .quiz-container {display: none;}
-
+.quiz-container.active {display: block;}
 .timer {
   padding: 15px 0;
   display: flex;
@@ -150,6 +153,8 @@ header h1 {
   border: 1px solid;
   border-radius: 23px;
 }
+
+.quizCounter {color: #ff0000;}
 
 .q-ans p {
   padding: 10px;
@@ -173,6 +178,12 @@ header h1 {
   margin: 0 10px;
   display: inline-block;
   color: #000;
+  transition: ease .4s;
+}
+
+.options:hover,
+button:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,.5);
 }
 
 .options.correct { background-color: #34cb34;}
@@ -190,7 +201,10 @@ button {
   outline: none;
   border: 1px solid;
   margin: 10px;
+  transition: ease .4s;
 }
+
+.next.active { display: none; }
 
 .resultShow {
   padding: 20px 0;
@@ -199,6 +213,8 @@ button {
   margin: 20px 0;
   display: none;
 }
+
+.resultShow.active {display: block;}
 
 .resultShow h3 {
   margin: 20px 0;
